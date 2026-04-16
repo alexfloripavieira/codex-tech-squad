@@ -17,5 +17,7 @@ This project follows semantic versioning.
 - Local install and validation scripts.
 - CI validation workflow.
 - Tag-based GitHub Release workflow with packaged tarball and checksum.
+- One-line bootstrap installer with version pinning, custom install directory,
+  dry-run, and uninstall support.
 - README, manual, installation, usage, architecture, distribution, and
   versioning docs.

@@ -32,7 +32,36 @@ Use home-local for daily work.
 
 ## Fresh Machine Install
 
-Use this sequence on a new machine.
+Use the one-line installer on a new machine:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash
+```
+
+Install a pinned version:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash -s -- --version v0.1.0
+```
+
+Install into a custom checkout directory:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash -s -- --dir ~/.local/share/codex-tech-squad
+```
+
+Auditable install:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh -o install.sh
+less install.sh
+bash install.sh
+```
+
+The bootstrap installer clones or updates the repository at
+`~/.codex-tech-squad`, then runs the home-local installer.
+
+Manual clone is also supported.
 
 Clone with SSH:
 
@@ -76,6 +105,22 @@ Then ask Codex:
 
 ```text
 Use codex-tech-squad:discovery to map this repository. Use subagents only if useful.
+```
+
+## Bootstrap Installer Options
+
+```bash
+bash install.sh --help
+```
+
+Options:
+
+```text
+--version <tag>   Checkout a specific version tag, for example v0.1.0.
+--dir <path>      Install repository checkout at this path. Default: ~/.codex-tech-squad
+--repo <url>      Git repository URL.
+--dry-run         Print actions without changing files.
+--help            Show help.
 ```
 
 ## Option 1: Repo-Local Installation
@@ -218,22 +263,37 @@ Use codex-tech-squad:security-audit to review the authentication changes.
 
 ## Update
 
-Pull the latest repository changes:
-
-```bash
-cd /home/alex/codex-tech-squad
-git pull
-```
-
 Run the installer again:
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash
+```
+
+Or update manually:
+
+```bash
+cd ~/.codex-tech-squad
+git pull
 ./plugins/codex-tech-squad/scripts/install-local.sh
 ```
 
 Restart Codex.
 
 ## Uninstall
+
+Use the uninstall script:
+
+```bash
+~/.codex-tech-squad/uninstall.sh
+```
+
+Remove plugin registration and checkout:
+
+```bash
+~/.codex-tech-squad/uninstall.sh --remove-checkout
+```
+
+Manual uninstall:
 
 Remove the symlink:
 

@@ -39,6 +39,26 @@ roles assigned to one of the native Codex subagent types.
 
 ## Install
 
+Fast install on any machine:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash
+```
+
+Install a specific version:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash -s -- --version v0.1.0
+```
+
+Auditable install:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh -o install.sh
+less install.sh
+bash install.sh
+```
+
 For repo-local development:
 
 ```bash

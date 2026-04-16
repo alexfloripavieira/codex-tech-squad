@@ -28,6 +28,31 @@ cd codex-tech-squad
 
 Restart Codex after installation.
 
+## One-Line Distribution
+
+Recommended install for other developers:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash
+```
+
+Pinned version:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh | bash -s -- --version v0.1.0
+```
+
+Auditable path:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alexfloripavieira/codex-tech-squad/main/install.sh -o install.sh
+less install.sh
+bash install.sh
+```
+
+The installer clones or updates the repository in `~/.codex-tech-squad`, then
+registers the plugin in the local Codex marketplace.
+
 ## Release Artifacts
 
 A release should include:

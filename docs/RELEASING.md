@@ -16,6 +16,7 @@ It validates:
 - version consistency
 - changelog entry
 - release package build
+- bootstrap installer help and dry-run paths
 
 ### Release
 

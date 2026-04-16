@@ -15,6 +15,8 @@ REQUIRED_TOP_LEVEL = [
     "CHANGELOG.md",
     "VERSION",
     "LICENSE",
+    "install.sh",
+    "uninstall.sh",
     ".agents/plugins/marketplace.json",
     "plugins/codex-tech-squad/.codex-plugin/plugin.json",
 ]

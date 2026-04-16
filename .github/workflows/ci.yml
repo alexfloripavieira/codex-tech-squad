@@ -29,6 +29,13 @@ jobs:
       - name: List skills
         run: ./plugins/codex-tech-squad/scripts/list-skills.sh
 
+      - name: Validate bootstrap scripts
+        run: |
+          ./install.sh --help
+          ./install.sh --dry-run --version v0.1.0 --dir /tmp/codex-tech-squad-smoke
+          ./uninstall.sh --help
+          ./uninstall.sh --dry-run --dir /tmp/codex-tech-squad-smoke
+
       - name: Validate release package build
         run: ./plugins/codex-tech-squad/scripts/package-release.sh
 

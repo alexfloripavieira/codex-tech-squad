@@ -30,6 +30,54 @@ There are two supported modes:
 
 Use home-local for daily work.
 
+## Fresh Machine Install
+
+Use this sequence on a new machine.
+
+Clone with SSH:
+
+```bash
+cd ~
+git clone git@github.com:alexfloripavieira/codex-tech-squad.git
+cd codex-tech-squad
+```
+
+If the machine does not have GitHub SSH configured, clone with HTTPS:
+
+```bash
+cd ~
+git clone https://github.com/alexfloripavieira/codex-tech-squad.git
+cd codex-tech-squad
+```
+
+Install for home-local use:
+
+```bash
+./plugins/codex-tech-squad/scripts/install-local.sh
+```
+
+Restart Codex.
+
+Validate:
+
+```bash
+python3 plugins/codex-tech-squad/scripts/validate-plugin.py .
+./plugins/codex-tech-squad/scripts/list-skills.sh
+```
+
+Smoke test from any project:
+
+```bash
+cd /path/to/your/project
+codex
+```
+
+Then ask Codex:
+
+```text
+Use codex-tech-squad:discovery to map this repository. Use subagents only if useful.
+```
+
 ## Option 1: Repo-Local Installation
 
 Use this mode while developing or testing the plugin.

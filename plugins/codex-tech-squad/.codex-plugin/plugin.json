@@ -1,0 +1,36 @@
+{
+  "name": "codex-tech-squad",
+  "version": "0.1.0",
+  "description": "Codex-native software delivery squad workflows using bounded subagents.",
+  "author": {
+    "name": "alexfloripavieira"
+  },
+  "homepage": "https://github.com/alexfloripavieira/codex-tech-squad",
+  "repository": "https://github.com/alexfloripavieira/codex-tech-squad",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skills",
+    "subagents",
+    "software-delivery",
+    "code-review",
+    "testing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Tech Squad",
+    "shortDescription": "Form bounded Codex agent teams for delivery workflows",
+    "longDescription": "Provides Codex-native workflows for discovery, implementation, bug fixing, hotfixes, pull request review, security audits, refactoring, and release preparation. Skills assemble small teams using Codex native explorer, worker, and default subagents when the user explicitly requests squad or parallel agent work.",
+    "developerName": "alexfloripavieira",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use codex-tech-squad:squad to form the necessary Codex team for this delivery task.",
+      "Use codex-tech-squad:bug-fix to investigate, patch, test, and verify this defect with a small agent team.",
+      "Use codex-tech-squad:pr-review to review this pull request with only the relevant specialist reviewers."
+    ]
+  }
+}

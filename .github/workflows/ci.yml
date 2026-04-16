@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate plugin
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate plugin layout
+        run: python3 plugins/codex-tech-squad/scripts/validate-plugin.py .
+
+      - name: List skills
+        run: ./plugins/codex-tech-squad/scripts/list-skills.sh
+
+      - name: Validate release package build
+        run: ./plugins/codex-tech-squad/scripts/package-release.sh
+
+      - name: Validate changelog entry
+        run: |
+          version="$(cat VERSION)"
+          grep -q "## \[${version}\]" CHANGELOG.md

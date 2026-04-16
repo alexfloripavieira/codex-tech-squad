@@ -1,0 +1,48 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: build release artifact
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate tag matches VERSION
+        run: |
+          version="$(cat VERSION)"
+          tag="${GITHUB_REF_NAME#v}"
+          test "${version}" = "${tag}"
+
+      - name: Validate plugin layout
+        run: python3 plugins/codex-tech-squad/scripts/validate-plugin.py .
+
+      - name: Validate changelog entry
+        run: |
+          version="$(cat VERSION)"
+          grep -q "## \[${version}\]" CHANGELOG.md
+
+      - name: Build package
+        run: ./plugins/codex-tech-squad/scripts/package-release.sh
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/codex-tech-squad-${{ github.ref_name }}.tar.gz
+            dist/codex-tech-squad-${{ github.ref_name }}.sha256
+          body_path: dist/release-notes.md

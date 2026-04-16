@@ -1,0 +1,13 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.squad-state/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+*.log
